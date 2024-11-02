@@ -1,0 +1,95 @@
+CREATE DATABASE dhbawsc;
+GO
+USE dhbawsc;
+------------------
+CREATE TABLE customer (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255),             
+    date_of_birth DATE,             
+    id_gender INT,                  
+    class NVARCHAR(255),            
+    id_department INT,               
+    id_area INT,                    
+    score DECIMAL(4,2),             
+    phone NVARCHAR(20),             
+    code_stu NVARCHAR(20),          
+    imageUrl NVARCHAR(255)
+);
+GO
+
+INSERT INTO customer VALUES 
+(1, 'Dao Huy Bac', '2001-01-06', 1, 'CCQ2111I', 1, 2, 8.5, '0334887873', '2121110281', 'D:/CSharp/project/image/img2.jpg'),
+(2, 'Dao Huy Nam', '2001-01-06', 1, 'CCQ2111I', 2, 2, 8.3, '0334887873', '2121110282', 'D:/CSharp/project/image/img3.jpg'),
+(3, 'Ngo Thi Truc Mo', '2001-01-06', 2, 'CCQ2111I', 3, 2, 8.5, '0334887873', '2121110283', 'D:/CSharp/project/image/img2.jpg'),
+(4, 'Phan Thi Thuy Tram', '2001-01-06', 2, 'CCQ2111I', 1, 2, 8.5, '0334887873', '2121110284', 'D:/CSharp/project/image/img3.jpg');
+GO
+
+
+
+-----------------------------
+CREATE TABLE department (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255)
+);
+GO
+
+INSERT INTO department VALUES 
+(1, 'Cong Nghe Thong Tin'),
+(2, 'Cong Nghe Thuc Pham'),
+(3, 'Quan Tri Kinh Doanh'),
+(4, 'Co Khi Ki Thuat');
+GO
+
+-----------------------
+CREATE TABLE areas (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255)
+);
+GO
+
+INSERT INTO areas VALUES 
+(1, 'Bac'),
+(2, 'Trung'),
+(3, 'Nam');
+GO
+
+-----------------------
+CREATE TABLE gender (
+    id INT PRIMARY KEY,
+    name NVARCHAR(255)
+);
+GO
+
+-- Thêm dữ liệu vào bảng gender
+INSERT INTO gender VALUES 
+(1, 'Male'),
+(2, 'Female'),
+(3, 'Other');
+GO
+
+------------------------------
+CREATE TABLE [user] (
+    id INT PRIMARY KEY IDENTITY(1,1), 
+    username NVARCHAR(255) NOT NULL,   
+    password NVARCHAR(255) NOT NULL,   
+
+);
+GO
+
+INSERT INTO [user] (username, password) VALUES ('hbawsc', '11Hbawsc.');
+INSERT INTO [user] (username, password) VALUES ('Dao Huy Nam', '11Hbawsc.');
+INSERT INTO [user] (username, password) VALUES ('Ngo Thi Truc Mo', '11Hbawsc.');
+INSERT INTO [user] (username, password) VALUES ('Phan Thi Thuy Tram', '11Hbawsc.');
+GO
+
+
+----------------------------
+
+DROP DATABASE sale;
+DROP DATABASE dhbawsc;
+DROP TABLE customer;
+DROP TABLE areas;
+DROP TABLE gender;
+DROP TABLE department;
+DROP TABLE [user];
+
